@@ -6,13 +6,10 @@ function Navbar() {
     <div>
       <nav className="w-full flex items-center justify-center bg-yellow-400 text-gray-700 shadow-lg">
         <div className="container-fluid w-4/6 flex justify-evenly items-center ">
-          <div className="">
+          <div className="text-xl hover:text-rose-500 font-semibold">
             <Link to="/">
-              <img
-                alt=""
-                src="https://my-video-five.vercel.app/image/logo%201.png"
-                className="w-32 h-28 cursor-pointer"
-              />
+              
+              <p>PetFinder</p>
             </Link>
           </div>
           <div>
@@ -21,6 +18,14 @@ function Navbar() {
               to="/animalList"
             >
               Find A Pet
+            </Link>
+          </div>
+           <div>
+            <Link
+              className="text-xl hover:text-rose-500 font-semibold"
+              to="/addpet"
+            >
+              Add A Pet
             </Link>
           </div>
           

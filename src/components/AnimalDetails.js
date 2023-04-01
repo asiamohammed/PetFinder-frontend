@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function AnimalDetails(onDeleteBlog) {
+function AnimalDetails() {
   let { id } = useParams();
   const [animal, setAnimal] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  // console.log(animals);
-   function handleDeleteClick() {
-    fetch(`http://localhost:3000/pets/${id}`, {
-      method: "DELETE",
-    }).then((res) => {
-      if (res.ok) {
-        onDeleteBlog(id);
-      }
-    });
-  }
-
+  console.log(animal);
+  
   useEffect(() => {
     setIsLoading(true);
     fetch(`http://localhost:3000/pets/${id}`)
@@ -30,6 +21,19 @@ function AnimalDetails(onDeleteBlog) {
         setIsLoading(false);
       });
   }, [id]);
+   function handleDeleteClick() {
+    fetch(`http://localhost:3000/pets/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        // onDeleteBlog(id);
+      
+      }
+    });
+    // const updatedAnimals = animal.filter((animal) => animal.id !== id);
+    //    setAnimal(updatedAnimals)
+  }
+
 
   const {
     image,

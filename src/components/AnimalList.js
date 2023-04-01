@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import Animal from "./Animal";
 import Search from "./Search";
 import Breeds from "./Breeds";
+// import AnimalDetails from "./AnimalDetails";
 
 
-function AnimalList() {
+function AnimalList(onDeleteBlog) {
   const [allAnimals, setAllAnimals] = useState([])
 const [animals, setAnimals] = useState([]);
   useEffect(() => {
@@ -16,10 +17,10 @@ const [animals, setAnimals] = useState([]);
       });
   }, []);
   function handleSearch(value){
-    const updatedAnimals = allAnimals.filter(animal=> animal.breeds.primary.toLowerCase().includes(value.toLowerCase()))
+    const updatedAnimals = allAnimals.filter(animal=> animal.breed.toLowerCase().includes(value.toLowerCase()))
     setAnimals(updatedAnimals)
   }
-
+  
   function handleClick(e){
   if (e.target.alt){
     if(e.target.alt === "others"){
@@ -33,6 +34,7 @@ const [animals, setAnimals] = useState([]);
 
   
   return (
+    <>
     <div className="bg-gray">
         <div className="flex justify-center">
         <Breeds onAnimalClick={handleClick}  key="cats" breed="Cats" image="https://cdn-icons-png.flaticon.com/512/9358/9358469.png"/>
@@ -42,7 +44,7 @@ const [animals, setAnimals] = useState([]);
         <Search onSearch={handleSearch}/>
       <div className="flex flex-wrap w-3/4 mx-auto">
 
-        {animals.map((animal, index) => {
+        {animals.map((animal) => {
           let imageUrl = animal.image;
           return (
             <div>
@@ -55,13 +57,16 @@ const [animals, setAnimals] = useState([]);
               }
               name={animal.name ? animal.name : "Milo"}
               breed={animal.breeds}
-              id ={index}
+              id ={animal.id}
             />
             </div>
           );
         })}
       </div>
+    
     </div>
+      {/* <AnimalDetails onDeleteBlog={onDeleteBlog}/> */}
+      </>
   );
 }
 
