@@ -106,14 +106,15 @@ button {
 }
 .new-pet-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 400px;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    /* add this line to center the form horizontally */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
 }
 
 .form-title {
