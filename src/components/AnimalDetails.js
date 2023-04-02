@@ -38,7 +38,7 @@ function AnimalDetails() {
 }
 function handleSubmit(event) {
   event.preventDefault();
-  setIsLoading(true);
+  
   fetch(`http://localhost:3000/pets/${id}`, {
     method: "PUT",
     headers: {
@@ -51,11 +51,11 @@ function handleSubmit(event) {
       setAnimal(data);
       setEditedAnimal({});
       setIsEditing(false);
-      setIsLoading(false);
+      // setIsLoading(false);
     })
     .catch(error => {
       console.log(error);
-      setIsLoading(false);
+      // setIsLoading(false);
     });
 }
  function handleCancelClick() {
@@ -155,13 +155,16 @@ function handleSubmit(event) {
         />
 
       
-        
+        <div className="text-gray-700 text-base mb-4 flex w-full justify-around mt-11">
         <button className="primary" type="submit">
           Save Changes
         </button>
+        </div>
+        <div className="text-gray-700 text-base mb-4 flex w-full justify-around mt-11">
         <button className="primary" onClick={handleCancelClick}>
           Cancel
         </button>
+        </div>
       </div>
     </form>
   </div>

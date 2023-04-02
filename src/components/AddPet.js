@@ -115,7 +115,7 @@ function AddPet({ onAddPet }) {
           <textarea
             id="house_trained"
             name="house_trained"
-            placeholder="Enter the house_trained"
+            placeholder="Enter yes or no"
             value={house_trained}
             onChange={(e) => setHouse_trained(e.target.value)}
             className="form-input"
